@@ -55,7 +55,8 @@ setup(
     install_requires=[
         'setuptools',
         'Django>=1.8',
-        'py-moneyed>=0.8'
+        'py-moneyed>=0.8',
+        'beautifulsoup4',
     ],
     platforms=['Any'],
     keywords=['django', 'py-money', 'money'],

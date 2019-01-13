@@ -30,6 +30,7 @@ OPEN_EXCHANGE_RATES_URL = getattr(settings, 'OPEN_EXCHANGE_RATES_URL', 'https://
 OPEN_EXCHANGE_RATES_APP_ID = getattr(settings, 'OPEN_EXCHANGE_RATES_APP_ID', None)
 FIXER_URL = getattr(settings, 'FIXER_URL', 'http://data.fixer.io/api/latest')
 FIXER_ACCESS_KEY = getattr(settings, 'FIXER_ACCESS_KEY', None)
+NBKR_URL = getattr(settings, 'NBKR_URL', 'http://nbkr.kg/XML/daily.xml')
 BASE_CURRENCY = getattr(settings, 'BASE_CURRENCY', 'USD')
 EXCHANGE_BACKEND = getattr(settings, 'EXCHANGE_BACKEND', 'djmoney.contrib.exchange.backends.OpenExchangeRatesBackend')
 RATES_CACHE_TIMEOUT = getattr(settings, 'RATES_CACHE_TIMEOUT', 600)
