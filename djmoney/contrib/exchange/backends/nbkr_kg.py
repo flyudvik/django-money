@@ -1,7 +1,9 @@
+from decimal import Decimal
+
 from bs4 import BeautifulSoup
+from django.db.transaction import atomic
 
 from djmoney import settings
-
 from .base import BaseExchangeBackend
 
 
@@ -20,4 +22,10 @@ class NBKRBackend(BaseExchangeBackend):
     def parse_xml(self, response):
         soup = BeautifulSoup(response)
         for currency in soup.currencyrates.find_all('currency'):
-            yield (currency.get('isocode'), currency.value.text)
+            value = Decimal(currency.value.text.replace(',', '.'))
+            yield (currency.get('isocode'), value)
+
+    @atomic
+    def update_rates(self, base_currency='KGS', **kwargs):
+        # force base currency of the NBKR to KGS
+        return super(NBKRBackend, self).update_rates('KGS', **kwargs)
