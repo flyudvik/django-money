@@ -1,3 +1,4 @@
+import ssl
 from decimal import Decimal
 
 from bs4 import BeautifulSoup
@@ -5,6 +6,8 @@ from django.db.transaction import atomic
 
 from djmoney import settings
 from .base import BaseExchangeBackend
+
+ssl._create_default_https_context = ssl._create_unverified_context
 
 
 class NBKRBackend(BaseExchangeBackend):
