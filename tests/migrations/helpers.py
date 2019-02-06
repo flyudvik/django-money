@@ -6,7 +6,6 @@ import os
 
 from django import VERSION
 
-
 MIGRATION_NAME = 'test'
 
 
@@ -18,7 +17,7 @@ def makemigrations():
     # We should answer yes for all migrations questioner questions
     questioner.input = lambda x: 'y'
 
-    os.system('find . -name \*.pyc -delete')
+    os.system("find . -name *.pyc -delete")
     if VERSION >= (1, 11):
         call_command('makemigrations', 'money_app', name=MIGRATION_NAME)
     else:
