@@ -57,7 +57,7 @@ setup(
         'Django>=1.8',
         'py-moneyed>=0.8',
         'beautifulsoup4',
-        'lxml',
+        'html5lib',
     ],
     platforms=['Any'],
     keywords=['django', 'py-money', 'money'],

@@ -29,7 +29,7 @@ class NBKRBackend(BaseExchangeBackend):
         return dict(self.parse_xml(response))
 
     def parse_xml(self, response):
-        soup = BeautifulSoup(response, 'lxml-xml')
+        soup = BeautifulSoup(response, 'html5lib')
         for currency in soup.currencyrates.find_all('currency'):
             nominal = Decimal(currency.nominal.text.replace(',', '.'))
             value = Decimal(currency.value.text.replace(',', '.'))
